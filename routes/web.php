@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\TestEvent;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -8,6 +9,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
+    TestEvent::dispatch('Hello World');
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
